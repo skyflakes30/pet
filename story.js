@@ -22,24 +22,42 @@ const NPC_LINES={theia:['The Heart remembers every bond. What will yours teach i
 function conversation(id,index=0){id=NPC_LINES[id]?id:'kat';index=Number.isInteger(index)&&index>=0?index%4:0;return{expression:EXPRESSIONS[index],text:NPC_LINES[id][index]};}
 function chapter(s){const q=s.ranch?.story||{step:0,choice:null},p=s.ranch?.active,step=Math.max(0,Math.min(5,q.step)),restore=q.choice==='restore';const ending=restore?{speaker:'Theia',text:'You chose to mend what Nythera would bind. The grove is alive again, and Hollowyrm has returned a fragment of memory. We will face the darkness with the bonds you protected.'}:{speaker:'Kat',text:'You followed Nythera’s trail and uncovered the path to the missing Guardians. Hollowyrm remembers her broken oath. Now we can warn Theia before the next fragment is taken.'};return{step,guideTip:p?GUIDE.notes[step]:'Choose your elemental affinity at the ranch. Warm the egg five times after incubation, and I’ll introduce you to Theia’s call.',intro:INTRO,objective:OBJECTIVES[step]||null,dialogue:step<5?DIALOGUE[step]:ending,affinity:AFFINITIES[p?.element]||'Choose an affinity and hatch a companion to reveal its connection to the two forces.',species:SPECIES_LINES[p?.species]||'',path:q.choice==='restore'?'Path of Restoration':q.choice==='investigate'?'Path of the Hidden Trail':'A path not yet chosen',ending:step===5?(restore?'The Grove Rekindled':'The Veil Uncovered'):null};}
 
-/* Original articulated map characters. No player state is changed by presentation. */
+/* Illustrated story actors are spawned only by authored scenes. */
 function actor(id,mood='calm'){
  id=NPC_LINES[id]?id:'kat';mood=EXPRESSIONS.includes(mood)?mood:'calm';
- const kat=id==='kat',dark=id==='nythera',hair=kat?'#ffd05a':dark?'#ac633d':'#efac46',coat=kat?'#304d78':dark?'#4d365e':'#fff0ce',trim=dark?'#c38a6b':'#e5b95b';
- return `<svg class="story-actor actor-${id}" data-mood="${mood}" viewBox="0 0 120 180" role="img" aria-label="${kat?'Kat':FORCES[id].name}, ${mood}"><ellipse cx="60" cy="169" rx="30" ry="7" fill="#16242f" opacity=".27"/><g class="actor-rig" stroke="#342d40" stroke-width="2.5" stroke-linejoin="round"><path class="actor-hair" d="M29 44Q14 68 23 111Q12 143 37 150L90 147Q108 127 95 98L94 48Z" fill="${hair}"/><g class="actor-leg leg-left"><path d="M42 130L41 159Q33 165 36 170H55L58 129" fill="${kat?'#263c59':coat}"/></g><g class="actor-leg leg-right"><path d="M62 130L65 169H85Q89 162 79 159L78 129" fill="${kat?'#263c59':coat}"/></g><path d="M39 87Q60 80 81 87L91 140Q60 153 29 140Z" fill="${coat}"/><path d="M42 88L68 118L46 141M78 87L53 114" fill="none" stroke="${trim}" stroke-width="6"/><path d="M35 117H85V126H35Z" fill="${kat?'#a97953':trim}"/><g class="actor-arm arm-left"><path d="M38 88Q23 88 19 119L31 124L47 96" fill="${coat}"/><ellipse cx="24" cy="123" rx="8" ry="10" fill="#f5cd9e"/></g><g class="actor-arm arm-right"><path d="M81 88Q97 91 101 118L88 124L73 97" fill="${coat}"/><ellipse cx="95" cy="123" rx="8" ry="10" fill="#f5cd9e"/></g><g class="actor-head"><path d="M26 45Q20 12 59 10Q103 12 97 55L90 76H31Z" fill="${hair}"/><path d="M31 42Q26 81 60 85Q94 81 89 42Z" fill="#f6d5ac"/><path d="M28 46Q37 11 64 24Q88 21 95 52Q70 53 46 32Q43 51 28 54Z" fill="${hair}"/>${kat?'<path d="M25 35Q23 6 62 6Q91 7 98 35Z" fill="#242a40"/><path d="M17 35Q52 24 98 36L105 45Q62 35 17 43Z" fill="#31394f"/><text x="60" y="27" text-anchor="middle" stroke="none" fill="#f6e8d4" font-size="15" font-weight="bold">BAD</text><path d="M31 54H53V68H32ZM66 54H89V68H67ZM53 57H66" fill="none" stroke="#171e2e" stroke-width="4"/>':'<path d="M28 49Q60 44 92 49L89 65Q60 62 31 66Z" fill="#292338"/>'}${kat?'<g class="actor-eyes"><path d="M39 58v5m36-5v5" stroke="#28243b" stroke-width="3" stroke-linecap="round"/></g>':dark?'<g class="actor-eyes" fill="#ff7663" stroke="none"><ellipse cx="43" cy="56" rx="4" ry="3"/><ellipse cx="77" cy="56" rx="4" ry="3"/></g>':''}<path class="actor-mouth" d="${mood==='happy'?'M50 71Q60 85 71 71Z':mood==='worried'?'M51 76Q60 68 69 76':mood==='determined'?'M52 74L68 72':'M53 73Q60 78 67 73'}" fill="${mood==='happy'?'#b26062':'none'}" stroke="#8b544f" stroke-linecap="round"/><ellipse cx="37" cy="72" rx="6" ry="3" fill="#edaa92" stroke="none" opacity=".65"/></g></g></svg>`;
+ const row={theia:0,nythera:1,kat:2}[id],col=EXPRESSIONS.indexOf(mood);
+ return `<span class="story-cutout actor-${id}" data-character="${id}" data-mood="${mood}" role="img" aria-label="${id==='kat'?'Kat':FORCES[id].name}, ${mood}" style="--cast-x:${col*100/3}%;--cast-y:${row*50}%"></span>`;
 }
-function cast(s,area='farm'){
- const c=chapter(s),ids=area==='farm'?['kat','theia']:area==='adventure'?['kat','nythera']:['kat','theia','nythera'];
- return `<div class="world-cast" data-cast-area="${area}">${ids.map(id=>`<button class="map-npc npc-${id} ${id!=='kat'?'keeper-echo':''}" data-world-npc="${id}" aria-label="Talk to ${id==='kat'?'Kat':FORCES[id].name}" style="--npc-delay:${id==='kat'?0:id==='theia'?-2:-4}s"><span class="npc-quest-mark">${id==='kat'?'!':id==='theia'?'☀':'☾'}</span>${actor(id,c.step===4?'worried':c.step===5?'happy':id==='nythera'?'determined':'calm')}<b>${id==='kat'?'Kat':FORCES[id].name}</b><small>${id==='kat'?'Story guide':'Heart echo'}</small></button>`).join('')}</div>`;
+function cast(){return '';}
+const BEAT=(id,expression,text,cast,shot='two-shot')=>({id,expression,text,cast,shot});
+function beats(s){const c=chapter(s),rest=s.ranch?.story?.choice==='restore',speaker=c.dialogue.speaker==='Theia'?'theia':c.dialogue.speaker==='Nythera'?'nythera':'kat';
+ if(c.step===0)return[
+ BEAT('kat','happy',GUIDE.intro,['kat'],'arrival'),
+ BEAT('theia','calm','Welcome, keeper. I am Theia, protector of the Light. The Heart once answered every living bond. Now its fragments are scattered across Aetheria.',['kat','theia'],'arrival'),
+ BEAT('theia','worried','Before the fracture, Nythera and I stood here together. Listen to what the shrine remembers.',['kat','theia']),
+ BEAT('nythera','determined','Every region is falling apart. Give me the Heart, Theia. One will can end this chaos.',['theia','nythera'],'conflict'),
+ BEAT('theia','determined','You would silence every creature to make a peaceful world? That is obedience, Nythera. I will not let you take their choice.',['theia','nythera'],'conflict'),
+ BEAT('nythera','worried','Then when the world breaks, remember that you refused to hold it together.',['theia','nythera'],'conflict'),
+ BEAT('theia','calm',c.dialogue.text,['kat','theia'],'return'),
+ BEAT('kat','happy',c.guideTip,['kat'])];
+ if(c.step===1){const rival=rest?'theia':'nythera';return[
+ BEAT('kat','calm',c.dialogue.text,['kat']),
+ BEAT(rival,rest?'happy':'determined',rest?'The grove can recover. Feed the soil before you ask it to feed your companions.':'You followed the trail instead of waiting for permission. Good. The swamp remembers what Theia could not save.',['kat',rival],'arrival'),
+ BEAT('kat','worried',c.affinity,['kat',rival]),
+ BEAT('kat','calm',c.guideTip,['kat'])];}
+ if(c.step===5)return[
+ BEAT('kat','happy','The Moonwell is quiet again. Hollowyrm has finally remembered.',['kat'],'arrival'),
+ BEAT(rest?'theia':'nythera',rest?'happy':'worried',rest?'You protected the bond when it would have been easier to command it. The grove has chosen to live again.':'Hollowyrm remembers the oath. But a memory does not tell you what I was trying to prevent.',['kat',rest?'theia':'nythera'],'arrival'),
+ BEAT(speaker,'happy',c.dialogue.text,['kat',rest?'theia':'nythera']),
+ BEAT('kat','happy',c.guideTip,['kat'])];
+ const involved=c.step===2?'nythera':'theia';return[
+ BEAT('kat',c.step===4?'worried':'calm',c.guideTip,['kat'],'arrival'),
+ BEAT(involved,c.step===2?'determined':'worried',c.step===2?c.dialogue.text:c.step===3?c.dialogue.text:'Nythera has reached the Moonwell. Hollowyrm is fighting a command it never agreed to obey.',['kat',involved],'arrival'),
+ ...(c.step===4?[BEAT('nythera','determined','A Guardian with no direction is a danger to every creature in this valley. Stand aside.',['theia','nythera'],'conflict'),BEAT('theia','determined','It has a voice. You are the one refusing to hear it.',['theia','nythera'],'conflict')]:[]),
+ BEAT('kat','determined',c.affinity,['kat',involved]),
+ BEAT('kat','calm',c.guideTip,['kat'])];
 }
-function beats(s){const c=chapter(s);return[
- {id:'kat',expression:'happy',text:c.step===0?GUIDE.intro:'Stay close. The Heart is showing us another memory.'},
- {id:'theia',expression:c.step===5?'happy':'worried',text:c.step===0?'The Heart shattered when our oath broke. These echoes can reach your ranch, but our struggle lies beyond it.':FORCES.theia.line},
- {id:'nythera',expression:'determined',text:c.step===0?'A broken world needs more than hope, sister. I will gather what you could not protect.':FORCES.nythera.line},
- {id:c.dialogue.speaker==='Theia'?'theia':c.dialogue.speaker==='Nythera'?'nythera':'kat',expression:c.step===5?'happy':'determined',text:c.dialogue.text},
- {id:'kat',expression:'calm',text:c.guideTip}
- ];}
-function scene(s,index=0){const lines=beats(s),i=Math.max(0,Math.min(lines.length-1,Number.isInteger(index)?index:0)),line=lines[i];return `<section class="story-cinematic" aria-label="Animated story scene"><div class="cinematic-sky"><span>THE HEART'S ECHO · ${i+1} / ${lines.length}</span><h2>${chapter(s).ending||'The Two Keepers'}</h2></div><div class="cinematic-ground">${['theia','kat','nythera'].map(id=>`<div class="cinematic-player player-${id} ${line.id===id?'is-speaking':''}">${actor(id,line.id===id?line.expression:'calm')}<b>${id==='kat'?'Kat':FORCES[id].name}</b></div>`).join('')}<i class="heart-fragment">✦</i></div><div class="cinematic-dialogue" aria-live="polite">${portrait(line.id,line.expression)}<div><b>${line.id==='kat'?'Kat':FORCES[line.id].name}</b><p>${line.text}</p></div></div><div class="cinematic-controls"><button data-scene-prev ${i===0?'disabled':''}>← Back</button><button data-scene-next>${i===lines.length-1?'Return to adventure':'Next →'}</button></div></section>`;}
+function scene(s,index=0){const lines=beats(s),i=Math.max(0,Math.min(lines.length-1,Number.isInteger(index)?index:0)),line=lines[i];return `<section class="story-dialogue-view" aria-label="Story dialogue" data-shot="${line.shot}"><div class="story-dialogue-actors">${line.cast.map((id,j)=>`<div class="scene-person slot-${j} ${id===line.id?'is-speaking':''}" data-person="${id}">${actor(id,id===line.id?line.expression:'calm')}</div>`).join('')}</div><div class="story-dialogue-box" aria-live="polite"><div class="dialogue-portrait">${portrait(line.id,line.expression)}</div><div class="dialogue-script"><small>${line.id==='theia'?'LIGHT PROTECTOR':line.id==='nythera'?'DARKNESS':GUIDE.title.toUpperCase()}</small><h3>${line.id==='kat'?'Kat':FORCES[line.id].name}</h3><p>${line.text}</p></div><div class="dialogue-pages"><span>${i+1} / ${lines.length}</span><button data-scene-prev ${i===0?'disabled':''}>← Back</button><button data-scene-next>${i===lines.length-1?'Return to adventure':'Next →'}</button></div></div></section>`;}
 
 const api={actor,cast,beats,scene,EXPRESSIONS,NPC_LINES,portrait,conversation,GUIDE,FORCES,INTRO,AFFINITIES,SPECIES_LINES,OBJECTIVES,DIALOGUE,chapter};if(typeof module!=='undefined')module.exports=api;else root.GhostStory=api;
 })(typeof window!=='undefined'?window:globalThis);
