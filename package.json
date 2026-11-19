@@ -1,0 +1,10 @@
+{
+  "name": "ghost-pocket-aetheria",
+  "version": "6.0.0-dev.1",
+  "private": true,
+  "scripts": {
+    "test": "node --test *.test.cjs",
+    "check": "node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js",
+    "build": "node build.cjs"
+  }
+}
