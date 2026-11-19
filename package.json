@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "node --test *.test.cjs",
-    "check": "node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
+    "check": "node --check story.js && node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
     "build": "node build.cjs"
   }
 }
