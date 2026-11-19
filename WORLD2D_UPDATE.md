@@ -5,7 +5,7 @@ The farm and adventure selector now use original 2D top-down tile scenery: grass
 ## Implemented
 - Farm map building hotspots open the working hatchery/nursery, pet collection, training and market panels.
 - Map crop plots display saved crop state and call the same validated plant, water and harvest rules as the existing field cards. Expanded fields appear automatically (up to nine).
-- Collected pets visibly roam the meadow; the active companion can still be petted or warmed.
+- All collected pets (up to 24 total) appear as small map companions. Tap a miniature pet to make it active; pet names appear on hover/keyboard focus and sleeping pets rest in place. Collected pets visibly roam the paths; the active companion can still be petted or warmed.
 - Adventure region markers retain existing level, hatch and sleep gates and start the existing battles. The map is a region selector, not free-walking exploration.
 - Mobile maps scroll sideways with touch, mouse/trackpad and keyboard focus. Scroll position survives UI refreshes during the session. The page itself has no horizontal overflow.
 - Reduced-motion preferences apply to scenery and creatures. No animation frame loop or new dependency is introduced.
