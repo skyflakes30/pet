@@ -30,3 +30,5 @@ Serve the repository root or the generated `dist/` with a static server. GitHub 
 `Pet-Source.zip` is the preserved earlier native/app source archive. It is a **legacy snapshot**, not the current ranch browser release. Android/iOS widgets still require native updates, building, signing and device tests. They do not automatically synchronize browser saves.
 
 All creature artwork is original. This increment adds an original SVG ranch scene and reuses existing creature rigs. There are nine collectible species and one additional wild boss, not 150 completed species.
+
+Current battle expansion: every existing monster has a signature skill with elemental bonuses. New wild companions require weakening and capturing with Aether Snares; knockouts no longer auto-recruit. See MONSTER_SKILLS.md and CAPTURE_UPDATE.md.
