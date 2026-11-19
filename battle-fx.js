@@ -21,21 +21,23 @@ tone(detail.sound,detail.action);caster?.classList.add('is-casting');
 if(detail.action==='guard'){
  shout('GUARD · +1 FOCUS');const shield=node(layer,'fx-shield');paint(shield,player,'#b5f6d3');shield.innerHTML='<svg viewBox="0 0 100 120" fill="none"><path d="M50 5L91 24v32q0 38-41 59Q9 94 9 56V24z" fill="currentColor" fill-opacity=".13" stroke="currentColor" stroke-width="3"/><path d="M30 55l15 15 27-32" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>';await pause(low?120:400);
 }else if(detail.action==='potion'){
- shout('MOON TONIC');const aura=node(layer,'fx-heal-aura');paint(aura,player,'#a8f0bd');for(let i=0;i<6;i++){const cross=node(layer,'fx-heal-cross');paint(cross,{x:player.x+(i%3-1)*25,y:player.y+15},'#c0f5cd');cross.textContent='+';cross.style.animationDelay=(i*.07)+'s';}await pause(low?120:350);number(arena,'.combat-pet','+'+detail.healed,'heal');const hp=arena.querySelector('.player-health progress');if(hp)hp.value=detail.beforeHP+detail.healed;await pause(low?120:350);
+ shout('MOON TONIC');const aura=node(layer,'fx-heal-aura');paint(aura,player,'#a8f0bd');for(let i=0;i<6;i++){const cross=node(layer,'fx-heal-cross');paint(cross,{x:player.x+(i%3-1)*25,y:player.y+15},'#c0f5cd');cross.textContent='+';cross.style.animationDelay=(i*.07)+'s';}await pause(low?120:350);number(arena,'.combat-pet','+'+Math.round(detail.healed),'heal');const hp=arena.querySelector('.player-health progress');if(hp)hp.value=detail.beforeHP+detail.healed;await pause(low?120:350);
 }else{
- const strong=detail.action==='skill';shout(strong?'LANTERN BURST':'SPIRIT TAP');
- if(strong){const charge=node(layer,'fx-charge');paint(charge,player,'#ffe4a3');const halo=node(layer,'fx-charge halo');paint(halo,player,'#c0f1e4');await pause(low?80:330);}
- const ball=node(layer,'fx-projectile '+(strong?'lantern-bolt':'spirit-bolt'));paint(ball,player,strong?'#ffe5a2':'#c5eafa');ball.style.setProperty('--dx',(enemy.x-player.x)+'px');ball.style.setProperty('--dy',(enemy.y-player.y)+'px');if(low){ball.hidden=true;await pause(70);}else await pause(strong?430:330);
- ball.remove();burst(layer,enemy,strong?['#ffebae','#ebbd6f']:['#dcf6ff','#90ccd7'],strong);opponent?.classList.add('is-hit');if(!low)arena.classList.add('fx-camera-hit');number(arena,'.combat-enemy','−'+detail.enemyDamage);const hp=arena.querySelector('.enemy-health progress');if(hp)hp.value=detail.afterEnemy;
+ const strong=detail.action==='skill',skill=detail.skill,colors=skill?[skill.color,skill.accent]:['#c5eafa','#90ccd7'];shout(strong?skill?.name.toUpperCase()||'SIGNATURE SKILL':'QUICK STRIKE');
+ if(strong){const charge=node(layer,'fx-charge');paint(charge,player,colors[0]);const halo=node(layer,'fx-charge halo');paint(halo,player,colors[1]);await pause(low?80:330);}
+ const ball=node(layer,'fx-projectile '+(strong?'lantern-bolt':'spirit-bolt'));paint(ball,player,colors[0]);if(strong&&skill){ball.classList.add('signature-bolt');ball.textContent=skill.glyph;ball.style.setProperty('--skill-accent',colors[1]);}ball.style.setProperty('--dx',(enemy.x-player.x)+'px');ball.style.setProperty('--dy',(enemy.y-player.y)+'px');if(low){ball.hidden=true;await pause(70);}else await pause(strong?430:330);
+ ball.remove();burst(layer,enemy,colors,strong);opponent?.classList.add('is-hit');if(!low)arena.classList.add('fx-camera-hit');number(arena,'.combat-enemy','−'+Math.max(0,detail.enemyDamage));const hp=arena.querySelector('.enemy-health progress');if(hp)hp.value=Math.max(0,detail.afterEnemy-detail.enemyHealed);
  await pause(low?220:380);arena.classList.remove('fx-camera-hit');opponent?.classList.remove('is-hit');
 }
+if(detail.action==='skill'&&detail.healed>0){const aura=node(layer,'fx-heal-aura');paint(aura,player,'#a8f0bd');number(arena,'.combat-pet','+'+Math.round(detail.healed),'heal');const hp=arena.querySelector('.player-health progress');if(hp)hp.value=detail.beforeHP+detail.healed;}
 caster?.classList.remove('is-casting');
 if(detail.won){opponent?.classList.add('is-defeated');shout('ENCOUNTER WON');tone(detail.sound,'potion');await pause(low?250:650);return;}
 if(detail.enemyDamageTaken>0){
- await pause(low?70:120);const colors=COLORS[detail.enemyKind]||COLORS.Shade;shout(detail.heavy?'HEAVY STRIKE!':detail.enemyName+' · COUNTER');tone(detail.sound,detail.action,true);opponent?.classList.add('is-casting');
+ await pause(low?70:120);const colors=COLORS[detail.enemyKind]||COLORS.Shade;shout(detail.heavy?detail.enemySkill?.name.toUpperCase()||'SIGNATURE STRIKE':detail.enemyName+' · COUNTER');tone(detail.sound,detail.action,true);opponent?.classList.add('is-casting');
  const bolt=node(layer,'fx-projectile enemy-bolt '+(detail.heavy?'heavy-bolt':''));paint(bolt,enemy,colors[0]);bolt.dataset.element=detail.enemyKind;bolt.style.setProperty('--dx',(player.x-enemy.x)+'px');bolt.style.setProperty('--dy',(player.y-enemy.y)+'px');if(low){bolt.hidden=true;await pause(70);}else await pause(detail.heavy?430:340);bolt.remove();
  burst(layer,player,detail.action==='guard'?['#d4ffe7','#7dd3af']:colors,detail.heavy&&detail.action!=='guard');caster?.classList.add('is-hit');if(!low&&detail.action!=='guard')arena.classList.add('fx-camera-hit');number(arena,'.combat-pet',(detail.action==='guard'?'BLOCKED · ':'')+'−'+detail.enemyDamageTaken,detail.action==='guard'?'blocked':'damage');const hp=arena.querySelector('.player-health progress');if(hp)hp.value=detail.afterHP;await pause(low?250:430);
 }
+if(detail.enemyHealed>0){number(arena,'.combat-enemy','+'+detail.enemyHealed,'heal');const hp=arena.querySelector('.enemy-health progress');if(hp)hp.value=detail.afterEnemy;await pause(low?150:300);}
 }finally{layer.remove();arena.classList.remove('fx-camera-hit');caster?.classList.remove('is-hit','is-casting');opponent?.classList.remove('is-hit','is-casting');if(banner)banner.textContent='';}}
 root.PetBattleFX={play,reduced,motion};
 })(window);

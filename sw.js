@@ -1,5 +1,5 @@
-const CACHE='ghost-pocket-aetheria-world2d-v4-clock-hybrids';
-const FILES=['./','./index.html','./style.css','./engine.js','./app.js','./ranch.js','./ranch-ui.js','./ranch.css','./world-clock.js','./world2d.js','./world2d.css','./battle-fx.js','./art.js','./icon.svg','./manifest.webmanifest','./cottage-v3.webp','./woodland-v3.webp','./ember-v4.webp','./moonwell-v4.webp'];
+const CACHE='ghost-pocket-aetheria-v5-signature-skills';
+const FILES=['./','./index.html','./style.css','./engine.js','./skills.js','./app.js','./ranch.js','./ranch-ui.js','./ranch.css','./world-clock.js','./world2d.js','./world2d.css','./battle-fx.js','./art.js','./icon.svg','./manifest.webmanifest','./cottage-v3.webp','./woodland-v3.webp','./ember-v4.webp','./moonwell-v4.webp'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('ghost-pocket-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin)return;event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(event.request,copy)));}return response;}).catch(()=>caches.match(event.request).then(cached=>cached||(event.request.mode==='navigate'?caches.match('./index.html'):Response.error()))));});

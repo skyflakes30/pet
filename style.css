@@ -140,3 +140,7 @@
 @media(prefers-reduced-motion:reduce){.puppet *,.is-casting .puppet *,.is-hit .puppet *{animation:none!important;transition:none!important}.puppet .eye-blink{transform:none}.room-pet.asleep .eye-blink{transform:scaleY(.08)}}
 
 .room-pet.asleep .joint{animation-duration:6s!important}
+
+
+/* Signature skills: compact lore, readable status effects and elemental projectiles. */
+.signature-card{margin:14px 0;padding:16px 18px;border:1px solid #a6bd9d55;border-radius:16px;background:#21352e;color:#f0eddb}.signature-card strong{font-family:Georgia,serif;font-size:20px}.signature-card p{font-size:13px;line-height:1.6;margin:8px 0}.signature-card small{color:#e2d595}.signature-card .enemy-signature{border-top:1px solid #ffffff22;padding-top:10px;color:#dfc6e6}.combat-statuses{display:grid;gap:6px;font-size:12px;color:#c9ebda}.battle-moves [data-move="skill"]{border-color:var(--skill-color)}.pet-signature{display:grid;gap:7px;padding:12px 0;border-top:1px solid #ffffff22}.pet-signature small{font-size:12px;line-height:1.6}.creature-skill{font-size:12px;line-height:1.5}.signature-bolt{display:grid;place-items:center;font-size:26px;color:#fff;font-weight:bold;border:2px solid var(--skill-accent);text-shadow:0 0 9px var(--fx-color);line-height:1}.battle-moves button:disabled{opacity:.48;cursor:not-allowed}@media(max-width:600px){.signature-card{padding:13px}.signature-card p{font-size:12px}.signature-card strong{font-size:18px}.battle-moves b{overflow-wrap:anywhere}}
