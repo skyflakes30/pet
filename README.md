@@ -2,7 +2,7 @@
 
 Development upgrade of the existing **Pet** game. Cute original creatures, a playable monster ranch, targeted training, crops, breeding, basic consumables, and the existing turn-based adventure.
 
-**Development branch only. Production is not changed until the owner approves a merge.**
+The initial ranch release is published on GitHub Pages. This 2D map update follows the same branch review and static deployment workflow.
 
 Play loop: choose an affinity → incubate and warm a random starter → grow moonberries → feed and train → explore and level → rescue a second pet through the opening story → raise compatible adults → breed new eggs and expand the ranch.
 
@@ -22,7 +22,8 @@ Serve the repository root or the generated `dist/` with a static server. GitHub 
 
 - `engine.js`: preserved adventure and battle rules; save schema remains compatible.
 - `ranch.js`: validated ranch state and progression rules, usable in browser or Node.
-- `ranch-ui.js`, `ranch.css`: illustrated ranch and playable interfaces.
+- `ranch-ui.js`, `ranch.css`: ranch and playable interfaces.
+- `world2d.js`, `world2d.css`: original 2D farm/world scenery, map hotspots and mobile panning. See [WORLD2D_UPDATE.md](WORLD2D_UPDATE.md).
 - `*.test.cjs`: legacy regression and new progression tests.
 - `build.cjs`: copies the complete browser release to `dist/`.
 
