@@ -10,6 +10,8 @@ Applied latest canon: Nythera is the Dark Force/ultimate final boss; Theia is Li
 
 Browser QA found WebGL unavailable in cloud: added a software 3D mesh fallback with mobile-oriented LOD. Fixed route follower prematurely declaring its starting waypoint blocked, overshoot, inaccessible expanded-view navigation and full-collection rescue progression. Added Places routes to crop plots. Preserve the saved exploration area on initial load instead of silently returning to the ranch.
 
-Validation: 87 automated tests pass, syntax checks pass, 31-asset build passes. Browser checks use isolated preview saves; no live player saves were modified. Hardware WebGL and physical mobile performance remain unverified. Production remains unchanged pending approval.
+Validation: 88 automated tests pass, syntax checks pass, 31-asset build passes. Browser checks use isolated preview saves; no live player saves were modified. Hardware WebGL and physical mobile performance remain unverified. Production remains unchanged pending approval.
 
 GitHub connector writes returned403 (resource inaccessible to integration), Git CLI lacked credentials. Use signed-in GitHub website branch uploads for logical commits and draft PR; do not merge.
+
+Final browser polish: software fallback ground triangles render before actors; NPC sprite occlusion clips against the actual depth plane to avoid floor triangles cutting across faces. Added a regression for the clipping calculation.

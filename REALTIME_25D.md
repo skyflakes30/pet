@@ -27,7 +27,7 @@ The old painted story module/assets are retained for compatibility/history, but 
 
 ## Validation
 
-`npm run check`, `npm test` (87 passed), `npm run build` (31 browser assets).
+`npm run check`, `npm test` (88 passed), `npm run build` (31 browser assets).
 
 Automated coverage includes existing ranch/economy/breeding/element/capture regressions plus save migration, camera projection inversion, finite mesh geometry, swept collisions, path routing, all-element puzzle, duplicate claims, old full-collection rescue, first ten quest prerequisites, actual breeding flags and boss phase/capture rules.
 
@@ -42,3 +42,5 @@ Nine collectible species are usable; 150 are not complete. Eleven enemy entries 
 No backend/database changes. Secure login, cloud saves, ranked/friendly online PvP, clans, chat, co-op and server-validated summoning are NOT STARTED and require a selected backend, hosting configuration and credentials/permissions. No client-only mock multiplayer was added. Native Android/iOS widgets remain legacy source only; signing/build/device integration is pending.
 
 Next: complete manual traversal of chapters 1–10, GPU and physical mobile QA, improve original character silhouettes/animation states and story beats, then expand regional content. Production deployment is blocked pending explicit approval. Current preview is internal Work Mode QA, not a public phone-accessible URL; no new public deployment has been created.
+
+Final browser polish: software fallback ground triangles render before actors; NPC sprite occlusion clips against the actual depth plane to avoid floor triangles cutting across faces. Added a regression for the clipping calculation.
