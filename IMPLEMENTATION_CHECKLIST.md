@@ -87,3 +87,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Change world character while preserving equipment and progression.
 - [x] 139 automated tests, production build, desktop and phone viewport QA.
 - [ ] Account-backed public profiles/cloud photo storage remain not implemented.
+
+### Accounts — real activation blocked
+- [x] Honest Account/guest UI, provider adapter and bundled official client.
+- [x] Prepared email sign-in/signup/confirmation/recovery/sign-out states.
+- [x] Separate auth/game storage; 150 tests, production build and dependency audit.
+- [ ] BLOCKED: owner Supabase project URL/public publishable key and auth/email configuration.
+- [ ] BLOCKED: real-provider end-to-end account tests before activation.
+- [ ] NOT STARTED: Google/Apple login and account-bound cloud saves.
