@@ -30,3 +30,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] 107 automated tests, syntax checks and 35-asset production build.
 - [x] Browser save/reload checks for both choices and old-save progression.
 - [ ] Physical Android/iPhone and hardware WebGL performance measurement.
+
+### Kat and controls follow-up
+- [x] World-lit Kat model in village and dialogue; established identity/portrait retained.
+- [x] Contact shadows, anchored idle feet and smooth guide orientation.
+- [x] Clear stale routes on manual input, transitions and UI interruptions.
+- [x] Independent key/finger ownership and camera-relative short taps.
+- [x] 112 tests, syntax checks, 36-asset build; software browser interaction checks.
+- [ ] Physical Android/iPhone multitouch and hardware WebGL verification.
