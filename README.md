@@ -36,3 +36,6 @@ All creature artwork is original. This increment adds an original SVG ranch scen
 Current battle expansion: every existing monster has a signature skill with elemental bonuses. New wild companions require weakening and capturing with Aether Snares; knockouts no longer auto-recruit. See MONSTER_SKILLS.md and CAPTURE_UPDATE.md.
 
 The current development branch also includes expressive procedural creature rigs, sixteen prototype animation poses, camera zoom, objective routing and a saved Guardian dialogue choice. See REALTIME_25D.md for honest scope and QA limits. Nythera's finale remains planned. The current camera correction adds three angle presets, stable closer framing and visibility fades.
+
+### Adventurer selection (v17)
+Choose **Lalaki / Male** or **Babae / Female** before entering your adventure. Existing saves also receive this one-time appearance choice, without losing progression. The choice travels with exported/imported saves. Both characters have the same gameplay abilities. Detailed procedural village characters and species-specific creature accents render in the existing 2.5D world; established cinematic portrait artwork is retained. Hardware WebGL adds smooth actor normals while the software fallback keeps a limited geometry budget.
