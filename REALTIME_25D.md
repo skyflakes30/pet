@@ -44,3 +44,11 @@ No backend/database changes. Secure login, cloud saves, ranked/friendly online P
 Next: complete manual traversal of chapters 1–10, GPU and physical mobile QA, improve original character silhouettes/animation states and story beats, then expand regional content. Production deployment is blocked pending explicit approval. Current preview is internal Work Mode QA, not a public phone-accessible URL; no new public deployment has been created.
 
 Final browser polish: software fallback ground triangles render before actors; NPC sprite occlusion clips against the actual depth plane to avoid floor triangles cutting across faces. Added a regression for the clipping calculation.
+
+## Expressive creatures continuation
+
+The current development increment adds sixteen **prototype** rig poses for the nine existing collectible species: idle, walking, running, talking, happy, sad, angry, surprised, hurt, attack, victory, defeat, sleeping, eating, training and farming. Care/training/farm/battle events drive the relevant poses; a companion-talk interaction and sleeping/needs states provide further reactions. This is procedural geometry, not sixteen fully hand-authored sprite animations per monster. Important NPCs retain the established atlases, with alternating speakers and portrait moods in the Guardian scene.
+
+Follow quest navigates through the real world toward the next opening objective or opens a ready reward/care panel. Camera zoom supports a closer view. Guardian choice flags are additive and one-time; they change follow-up dialogue, not completed endings. No new species or missions were added in this increment (9 collectibles,23 missions,10 short opening chapter quests remain).
+
+Current checks: **96 tests passed**, syntax checks passed, build packages **33 assets**. GPU/mobile device verification, final-quality art, later content and online/backend functionality remain pending. Nythera is still the ultimate final boss; her actual final encounter remains unimplemented. No database/backend migration or production deployment was performed.

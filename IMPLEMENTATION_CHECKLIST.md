@@ -16,3 +16,5 @@
 - DISABLED: equipment gameplay.
 
 See REALTIME_25D.md for validation boundaries and next milestone.
+
+Continuation: COMPLETE prototype sixteen-pose creature controller, event reactions, nine refined procedural rigs, camera zoom, objective navigation and one-time Guardian dialogue choice. PARTIALLY IMPLEMENTED final animation/art polish and main campaign branching; the final endings are not implemented. Test suite now96; build33assets. Backend/online/final-story targets remain pending.
