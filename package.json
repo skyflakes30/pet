@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "node --test *.test.cjs",
-    "check": "node --check character-profile.js && node --check camera-rig.js && node --check story-scenes.js && node --check creature-motion.js && node --check world-engine.js && node --check webgl-world.js && node --check realtime-world.js && node --check game-audio.js && node --check story-mode.js && node --check story.js && node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
+    "check": "node --check character-profile.js && node --check camera-rig.js && node --check story-scenes.js && node --check creature-motion.js && node --check world-engine.js && node --check webgl-world.js && node --check world-input.js && node --check realtime-world.js && node --check game-audio.js && node --check story-mode.js && node --check story.js && node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
     "build": "node build.cjs",
     "dev": "node preview.cjs"
   }

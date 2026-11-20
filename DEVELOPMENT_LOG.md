@@ -45,3 +45,9 @@ Validation:102 tests pass, syntax checks pass,34-asset build passes. New tests c
 - GPU actor spheres now use smooth normals; the software renderer retains a strict under-600-triangle collectible budget for all sixteen actions including care effects. Static environments retain their existing detail.
 - Version 17 asset cache includes the character module. Build contains 35 assets.
 - Validation: 107 tests pass; all JavaScript syntax checks pass. Browser QA verified legacy progression retained after selecting female, female choice retained on reload, fresh-save initial picker, male choice retained on reload, and rendered upgraded ranch actors. Preview uses the software renderer; physical mobile performance and hardware WebGL were not verified.
+
+## Kat world integration and controls — 2026-11-20
+- Replaced Kat's in-world billboard with a procedural character sharing the environment's light, depth and occlusion in exploration and cinematic conversations. Preserved blonde hair, square glasses, navy/fur-trim jacket and BAD cap; existing dialogue portrait remains intact.
+- Added layered ground contact shadows for staged world actors, anchored idle feet, smooth guide turning toward nearby players, and talking/mood poses. No character/save/story identity was changed.
+- Fixed manual input leaving old route objectives active; area changes, menus, dialogue, blur and hidden pages now clear movement. Added source-owned keyboard/touch input, consistent camera-relative accessible button steps, quick tap response and normalized directions based on the rendered camera.
+- Validation: 112 tests pass; syntax checks and 36-asset build pass. Software-browser QA verified Kat's four dialogue frames and model routing, manual route cancellation, zero held inputs after release, touch movement after camera rotation, and menu cancellation that stays cancelled when closed. Physical multitouch/mobile hardware and hardware WebGL remain unverified.
