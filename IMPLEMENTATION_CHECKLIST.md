@@ -38,3 +38,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Independent key/finger ownership and camera-relative short taps.
 - [x] 112 tests, syntax checks, 36-asset build; software browser interaction checks.
 - [ ] Physical Android/iPhone multitouch and hardware WebGL verification.
+
+### Phone playability
+- [x] Expanded phone viewport, visible toolbar, thumb joystick, large interaction button and Run toggle.
+- [x] Analog direction/dead zone and release handling; preserved desktop controls.
+- [x] Ranch Kat NPC and direct Kat navigation in both home regions.
+- [x] Cached sphere geometry topology with regression tests.
+- [x] 115 tests, syntax checks, production build; 390×740 browser layout and guide interaction QA.
+- [ ] Physical iPhone/Android multitouch and GPU FPS validation.
