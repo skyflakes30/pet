@@ -54,3 +54,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Every basic inventory item has art; non-consumables retain correct usage rules.
 - [x] 118 tests, syntax checks and 39-asset build.
 - [x] Browser market crops, food purchase, Mara dialogue and 390×740 illustrated inventory checks.
+
+### Cohesive identities / English release
+- [x] Six illustrated NPC identities mapped to real 3D rigs; Kat preserved.
+- [x] Male/female adventurer cape details; existing selection/save compatibility.
+- [x] Existing monster eyes, secondary movement and softer shading.
+- [x] Compact exploration interface and English character picker.
+- [x] 121 tests, syntax checks, 40-asset production build, desktop/phone viewport QA.
+- [ ] Portrait-quality sculpted rigs and physical device GPU profiling remain future work.

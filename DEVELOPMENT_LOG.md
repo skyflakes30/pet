@@ -64,3 +64,13 @@ Validation:102 tests pass, syntax checks pass,34-asset build passes. New tests c
 - Replaced generic letter seals for Mara/Tobin/Seren/Vey dialogue with their own expression portraits. Prepared Elian/Rovan portraits do not imply new story missions. Canonical Kat/Guardian artwork and in-world models remain intact.
 - Illustrated both markets, all eleven supply inventory entries, training/nursery headers and seed/harvest cards. Non-consumable bag items show their real usage location; existing purchase/use validation remains authoritative.
 - Validation: 118 tests, syntax checks and 39-asset build pass. Browser QA confirmed market icon crops, food purchase (30→22 gold), and Mara's illustrated dialogue. A 390×740 browser inventory check confirmed all eleven item icons, usage hints and scrollable controls fit. See ART_ASSETS.md for source briefs, mappings and scope.
+
+## 2026-11-20 — cohesive world identities and English interface
+
+Applied the six new portrait identities to actual procedural 3D rigs: Mara's curls/apron, Tobin's vest/egg pin, Seren's ponytail/sash, Vey's bob/cloak, Elian's spectacles/coat, and Rovan's beard/leather shoulder. Elian and Rovan models are prepared for future scenes, not newly spawned quest NPCs. Retained Kat's BAD cap, glasses and blonde hair. Added adventurer cape panels and female ribbon without touching character selection or saves.
+
+Softer vertex normals and hemisphere fill lighting in WebGL/software renderers, enlarged expressive species-colored monster eyes, and individual crest/tail sway improve the existing roster. This is an incremental procedural-model upgrade; it does not claim portrait-level sculpted characters or new species. The shared visual catalog does not alter monster stats or progress.
+
+Compacted the desktop exploration shell, refined fantasy panels/buttons, preserved the mobile joystick and all eight toolbar controls. Replaced the remaining Filipino character-picker copy with English; runtime copy audit passes. Cache version 21 includes the new visual catalog.
+
+Validation: 121 automated tests pass, syntax checks and 40-asset production build pass. Desktop village and Mara conversation render correctly. 390×740 phone layout retains every toolbar control and joystick; keyboard-accessible joystick changes world position. Physical iOS/Android hardware performance is not measured. Existing save import/export, collision, animation and economy regression tests pass. No backend or equipment changes.
