@@ -46,3 +46,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Cached sphere geometry topology with regression tests.
 - [x] 115 tests, syntax checks, production build; 390×740 browser layout and guide interaction QA.
 - [ ] Physical iPhone/Android multitouch and GPU FPS validation.
+
+### Illustrated NPCs and supplies
+- [x] Six NPC identities × four expressions; preserve established canonical portraits.
+- [x] Twelve item/crop icons in two optimized WebP atlases.
+- [x] Market, inventory, dialogue, nursery, training and crop-card integration.
+- [x] Every basic inventory item has art; non-consumables retain correct usage rules.
+- [x] 118 tests, syntax checks and 39-asset build.
+- [x] Browser market crops, food purchase, Mara dialogue and 390×740 illustrated inventory checks.
