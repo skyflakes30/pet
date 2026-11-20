@@ -12,7 +12,7 @@ No installation or paid API is needed for solo play. Saves stay on the current b
 
 ## Development
 
-Node 18+; no npm dependencies.
+Node 22+; run `npm ci` to install the pinned authentication SDK and build tools.
 
 ```sh
 npm run check
@@ -43,3 +43,7 @@ Choose **Lalaki / Male** or **Babae / Female** before entering your adventure. E
 ### Adventurer equipment (v23)
 
 Open **Character** in the world toolbar for your own equipment and the Outfitter. Six slots and twelve original pieces support equip/unequip, slot filters, earned-gold purchases, chapter-based Explorer Rank unlocks and visible gear. Upgrades provide modest solo combat support and travel speed. Gear ownership and equipped slots travel with save exports; pet base stats and training stay independent. Player equipment was explicitly approved on November 20, 2026; earlier equipment-disabled notes remain applicable to monster equipment. No independent human combat, paid gear, crafting or multiplayer equipment validation is claimed.
+
+### Account foundation (development branch)
+
+Account UI and official Supabase Auth integration are prepared, but real login remains **BLOCKED** until an owner-controlled backend is connected and tested. Guest play remains available, and signing in never silently replaces a device save. See [AUTH_SETUP.md](AUTH_SETUP.md) for the exact public configuration and verification requirements. This does not add cloud saves or Google/Apple login. Run `npm ci` before tests/builds; `npm run build:auth` regenerates the committed authentication bundle.
