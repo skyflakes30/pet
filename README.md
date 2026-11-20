@@ -39,3 +39,7 @@ The current development branch also includes expressive procedural creature rigs
 
 ### Adventurer selection (v17)
 Choose **Lalaki / Male** or **Babae / Female** before entering your adventure. Existing saves also receive this one-time appearance choice, without losing progression. The choice travels with exported/imported saves. Both characters have the same gameplay abilities. Detailed procedural village characters and species-specific creature accents render in the existing 2.5D world; established cinematic portrait artwork is retained. Hardware WebGL adds smooth actor normals while the software fallback keeps a limited geometry budget.
+
+### Adventurer equipment (v23)
+
+Open **Character** in the world toolbar for your own equipment and the Outfitter. Six slots and twelve original pieces support equip/unequip, slot filters, earned-gold purchases, chapter-based Explorer Rank unlocks and visible gear. Upgrades provide modest solo combat support and travel speed. Gear ownership and equipped slots travel with save exports; pet base stats and training stay independent. Player equipment was explicitly approved on November 20, 2026; earlier equipment-disabled notes remain applicable to monster equipment. No independent human combat, paid gear, crafting or multiplayer equipment validation is claimed.

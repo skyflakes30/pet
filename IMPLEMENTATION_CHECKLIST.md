@@ -71,3 +71,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Import dungeon saves without forcing the ranch.
 - [x] 127 tests and real browser wild/boss/recovery checks.
 - [ ] Physical Android/iOS touch and GPU profiling remain unverified.
+
+### Player equipment — explicitly approved 2026-11-20
+- [x] Adventurer-only equipment activated; earlier player equipment hold superseded.
+- [x] Six slots, 12 original pieces, starter ownership, earned-gold purchases and rank gates.
+- [x] Equip/unequip, filters, effects and visible world gear.
+- [x] Bounded solo-combat support and travel speed; pet stats unchanged.
+- [x] Save compatibility/import validation; 134 tests and desktop/390×740 UI checks.
+- [ ] Monster equipment, crafting, selling and a separate human combat system are not implemented.
