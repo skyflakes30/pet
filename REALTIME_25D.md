@@ -52,3 +52,11 @@ The current development increment adds sixteen **prototype** rig poses for the n
 Follow quest navigates through the real world toward the next opening objective or opens a ready reward/care panel. Camera zoom supports a closer view. Guardian choice flags are additive and one-time; they change follow-up dialogue, not completed endings. No new species or missions were added in this increment (9 collectibles,23 missions,10 short opening chapter quests remain).
 
 Current checks: **96 tests passed**, syntax checks passed, build packages **33 assets**. GPU/mobile device verification, final-quality art, later content and online/backend functionality remain pending. Nythera is still the ultimate final boss; her actual final encounter remains unimplemented. No database/backend migration or production deployment was performed.
+
+## Camera/graphics correction
+
+PR9 is now released after explicit user approval (main f425dab, Pages run13). Historical notes above describe the pre-release state.
+
+The follow-up camera rig uses Adventure32°,Tactical48° and Low angle24° presets with a closer default projection, portrait-aware coverage, Reset view and persistent local visual preferences. Explicit rotation replaces accidental normal-drag orbiting. Buildings that obstruct the player/pet fade; characters retain depth testing. Roof tiles, stone paths, timber/window details, awnings, vegetation and terrain continuity improve the original environment meshes.
+
+Validation:102 tests;34-asset build. Browser QA exercises the software renderer. Real mobile and GPU device checks remain outstanding. No save schema, balance, story canon, backend or equipment changes.
