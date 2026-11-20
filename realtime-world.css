@@ -6,3 +6,8 @@
 @media(prefers-reduced-motion:reduce){.world3d *{animation:none!important;transition:none!important}}
 
 .world-damage{position:absolute;top:38%;left:50%;z-index:22;pointer-events:none;color:#fff2bd;font:700 32px Georgia,serif;text-shadow:0 3px 5px #432c4a;opacity:0}.world-damage.pop{animation:world-damage-pop .8s ease-out}@keyframes world-damage-pop{0%{opacity:0;transform:translateY(15px) scale(.8)}20%{opacity:1;transform:translateY(0) scale(1.2)}100%{opacity:0;transform:translateY(-40px) scale(1)}}
+
+/* Compact camera controls remain accessible without shrinking the playfield. */
+.world3d-controls{flex-wrap:wrap;gap:10px}.world3d-camera{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.world3d-camera button{font-size:14px!important;min-height:40px!important;padding:8px 11px!important}.world3d-camera [data-camera-reset]{background:#466575!important}.world3d-stage{background:#60866e}.world3d-vitals{width:max-content;max-width:calc(100% - 30px);right:auto;box-shadow:0 4px 14px #081b2433}
+@media(max-width:900px){.world3d-hints{display:none}.world3d-camera{width:100%;justify-content:center;flex-wrap:nowrap;overflow:auto}.world3d-controls{padding:8px}.world3d-camera button{white-space:nowrap;font-size:13px!important}.world3d [data-world-interact]{flex:1}}
+@media(max-height:540px) and (orientation:landscape){.world3d.expanded .world3d-camera{position:absolute;right:0;top:0;width:auto;pointer-events:auto;transform:translateY(-52px);background:#1b303ce8;padding:3px;border-radius:8px}.world3d.expanded .world3d-camera button{min-height:36px!important}.world3d.expanded [data-camera-reset]{display:none}}

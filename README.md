@@ -2,7 +2,7 @@
 
 Development upgrade of the existing **Pet** game. Cute original creatures, a playable monster ranch, targeted training, crops, breeding, basic consumables, and the existing turn-based adventure.
 
-The live ranch release remains on GitHub Pages. The real-time 2.5D upgrade is on a development branch and is **not approved for production**. See [REALTIME_25D.md](REALTIME_25D.md) for the current scope, QA limits and continuation plan.
+The real-time 2.5D upgrade was approved and published to the existing GitHub Pages game through PR9. The camera/graphics follow-up retains the same deployment and save format. See [REALTIME_25D.md](REALTIME_25D.md) for the current scope, QA limits and continuation plan.
 
 **Canon: Nythera is the Dark Force and ultimate final boss. Theia is the Light Protector. The Dark Protector is a separate Guardian.** This supersedes earlier historical design documents.
 
@@ -35,4 +35,4 @@ All creature artwork is original. This increment adds an original SVG ranch scen
 
 Current battle expansion: every existing monster has a signature skill with elemental bonuses. New wild companions require weakening and capturing with Aether Snares; knockouts no longer auto-recruit. See MONSTER_SKILLS.md and CAPTURE_UPDATE.md.
 
-The current development branch also includes expressive procedural creature rigs, sixteen prototype animation poses, camera zoom, objective routing and a saved Guardian dialogue choice. See REALTIME_25D.md for honest scope and QA limits. Nythera's finale remains planned; production requires separate approval.
+The current development branch also includes expressive procedural creature rigs, sixteen prototype animation poses, camera zoom, objective routing and a saved Guardian dialogue choice. See REALTIME_25D.md for honest scope and QA limits. Nythera's finale remains planned. The current camera correction adds three angle presets, stable closer framing and visibility fades.
