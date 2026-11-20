@@ -9,7 +9,7 @@ function sound(){if(!s.sound||Number(localStorage.getItem('pet-sfx-volume')??'.7
 function modal(html){$('modal-content').innerHTML=html;$('modal').showModal();}$('close').onclick=()=>$('modal').close();
 function chooseCharacter(){
  if(GhostCharacter.selected(s))return;
- modal(`<div class="character-intro"><span class="eyebrow">YOUR JOURNEY BEGINS</span><h2>Choose your adventurer</h2><p>Piliin ang character mo. Pareho ang abilities at story opportunities.</p><div class="character-options">${GhostCharacter.OPTIONS.map(g=>`<button data-character="${g}" class="character-card">${GhostCharacter.portrait(g)}<strong>${g==='male'?'Lalaki':'Babae'}</strong><small>${g==='male'?'Male adventurer':'Female adventurer'}</small></button>`).join('')}</div><p>Your companions and progress stay with you.</p></div>`);
+ modal(`<div class="character-intro"><span class="eyebrow">YOUR JOURNEY BEGINS</span><h2>Choose your adventurer</h2><p>Choose your character. Both adventurers share the same abilities and story opportunities.</p><div class="character-options">${GhostCharacter.OPTIONS.map(g=>`<button data-character="${g}" class="character-card">${GhostCharacter.portrait(g)}<strong>${g==='male'?'Male':'Female'}</strong><small>${g==='male'?'Male adventurer':'Female adventurer'}</small></button>`).join('')}</div><p>Your companions and progress stay with you.</p></div>`);
  $('close').hidden=true;
  $('modal').oncancel=e=>{if(!GhostCharacter.selected(s))e.preventDefault();};
  $('modal-content').querySelectorAll('[data-character]').forEach(b=>b.onclick=()=>{if(!GhostCharacter.choose(s,b.dataset.character))return;save();$('close').hidden=false;$('modal').oncancel=null;$('modal').close();notify('Welcome to Aetheria, adventurer!');render();});
