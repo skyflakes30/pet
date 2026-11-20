@@ -11,6 +11,7 @@ thornox:{name:'Grovebreaker',stat:'ATK',power:1.18,shield:.15,desc:'A powerful a
 sparkip:{name:'Flashbound',stat:'ATK',power:1.02,shield:.45,shieldTurns:1,desc:'Dash through the target and evade part of its counter.'},
 mirejaw:{name:'Bog Bubble',stat:'SPATK',power:.9,dot:5,dotTurns:3,desc:'A stubborn bubble keeps hurting for three ticks.'},
 frostloom:{name:'Crystal Bloom',stat:'SPATK',power:1,weaken:.12,shield:.2,desc:'Crystal petals cushion damage and dull enemy strikes.'},
+hollowherald:{name:'Oathfall',stat:'SPATK',power:1.15,weaken:.16,desc:'The shattered crown sends a ring of dark force through the arena.'},
 hollowyrm:{name:'Hollow Spiral',stat:'SPATK',power:1.12,drain:.18,desc:'A spiralling ribbon of shadow steals back some HP.'}
 };
 const ELEMENTS={

@@ -2,7 +2,9 @@
 
 Development upgrade of the existing **Pet** game. Cute original creatures, a playable monster ranch, targeted training, crops, breeding, basic consumables, and the existing turn-based adventure.
 
-The initial ranch release is published on GitHub Pages. This 2D map update follows the same branch review and static deployment workflow.
+The live ranch release remains on GitHub Pages. The real-time 2.5D upgrade is on a development branch and is **not approved for production**. See [REALTIME_25D.md](REALTIME_25D.md) for the current scope, QA limits and continuation plan.
+
+**Canon: Nythera is the Dark Force and ultimate final boss. Theia is the Light Protector. The Dark Protector is a separate Guardian.** This supersedes earlier historical design documents.
 
 Play loop: choose an affinity → incubate and warm a random starter → grow moonberries → feed and train → explore and level → rescue a second pet through the opening story → raise compatible adults → breed new eggs and expand the ranch.
 
@@ -29,6 +31,8 @@ Serve the repository root or the generated `dist/` with a static server. GitHub 
 
 `Pet-Source.zip` is the preserved earlier native/app source archive. It is a **legacy snapshot**, not the current ranch browser release. Android/iOS widgets still require native updates, building, signing and device tests. They do not automatically synchronize browser saves.
 
-All creature artwork is original. This increment adds an original SVG ranch scene and reuses existing creature rigs. There are nine collectible species and one additional wild boss, not 150 completed species.
+All creature artwork is original. This increment adds an original SVG ranch scene and reuses existing creature rigs. There are nine collectible species, the legacy Hollowyrm boss and the new Hollow Herald; not 150 completed species.
 
 Current battle expansion: every existing monster has a signature skill with elemental bonuses. New wild companions require weakening and capturing with Aether Snares; knockouts no longer auto-recruit. See MONSTER_SKILLS.md and CAPTURE_UPDATE.md.
+
+The current development branch also includes expressive procedural creature rigs, sixteen prototype animation poses, camera zoom, objective routing and a saved Guardian dialogue choice. See REALTIME_25D.md for honest scope and QA limits. Nythera's finale remains planned; production requires separate approval.
