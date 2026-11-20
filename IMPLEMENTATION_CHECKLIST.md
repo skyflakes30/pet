@@ -79,3 +79,11 @@ Camera follow-up: COMPLETE shared rig, three angle presets, closer default frami
 - [x] Bounded solo-combat support and travel speed; pet stats unchanged.
 - [x] Save compatibility/import validation; 134 tests and desktop/390×740 UI checks.
 - [ ] Monster equipment, crafting, selling and a separate human combat system are not implemented.
+
+### Adventurers and profile photos
+- [x] Original male/female portrait atlas and matching player-model colors/details.
+- [x] Optional local profile image, four presets, preview, Save/Cancel and removal.
+- [x] Size/type validation and error handling; photo excluded from adventure exports.
+- [x] Change world character while preserving equipment and progression.
+- [x] 139 automated tests, production build, desktop and phone viewport QA.
+- [ ] Account-backed public profiles/cloud photo storage remain not implemented.

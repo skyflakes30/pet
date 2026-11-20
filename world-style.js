@@ -10,7 +10,7 @@ const NPCS={
  kat:{coat:'#354b6b',hair:'#ecc54e',skin:'#efc7a1',accent:'#946c48',motif:'bad-cap-glasses'}
 };
 const CREATURES={lantern:{iris:'#7e5aa4',belly:'#f3d6a2',lean:.045},twiggle:{iris:'#527c47',belly:'#d5e8a6',lean:.025},pebblit:{iris:'#687c67',belly:'#d6d8bb',lean:.02},dewbell:{iris:'#407fa1',belly:'#dbf0ed',lean:.035},cindillo:{iris:'#91572f',belly:'#f3ca8e',lean:.02},thornox:{iris:'#687544',belly:'#e0d2a4',lean:.02},sparkip:{iris:'#a46b3f',belly:'#fff1be',lean:.06},mirejaw:{iris:'#497969',belly:'#c0cf9b',lean:.02},frostloom:{iris:'#688aba',belly:'#f1f6e8',lean:.03},hollowyrm:{iris:'#a085bd',belly:'#bba2c5',lean:.03}};
-function human(id,gender='male'){return NPCS[id]||{coat:gender==='female'?'#678fa7':'#4f8f87',hair:gender==='female'?'#925b4e':'#514354',skin:'#edc5a3',accent:'#e6bd81',motif:gender==='female'?'ribbon-cape':'scarf-cape'};}
+function human(id,gender='male'){return NPCS[id]||{coat:gender==='female'?'#7d83b8':'#348c83',hair:gender==='female'?'#a75f3f':'#704b31',skin:'#f0c49c',accent:'#e6bd81',motif:gender==='female'?'ribbon-cape':'scarf-cape'};}
 function creature(id){return CREATURES[id]||CREATURES.lantern;}
 const api={NPCS,CREATURES,human,creature};if(typeof module!=='undefined')module.exports=api;else root.GhostVisualStyle=api;
 })(typeof window!=='undefined'?window:globalThis);

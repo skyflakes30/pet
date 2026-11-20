@@ -21,3 +21,9 @@ Item atlas prompt: one original hand-painted fantasy inventory texture, exact fo
 NPC expressions appear in conversations and the market/training/nursery panels. All eleven basic items are illustrated in the market and supplies bag; field cards use seed/harvest icons. Non-consumable inventory entries explain where to use them instead of exposing an invalid Use action.
 
 No rewards, prices, effects, quest prerequisites, save schema, equipment or backend systems change. 118 automated tests, syntax checks and a 39-asset build pass. Verify image crops, dialogue, purchases and phone-sized inventory layout in browser before release.
+
+## Adventurer portrait atlas v2
+
+`adventurer-portraits-v2.webp`: 1254×1254, original built-in image-generation artwork, optimized to WebP without changing composition. Four equal cells: male calm / female calm; male happy / female happy. Used by character-profile.js and the local profile editor. Actual world actors remain animated 3D geometry, not these portraits.
+
+Prompt: Original fantasy RPG adventurer portrait atlas for Ghost Pocket: Aetheria; polished square 2-column by 2-row atlas, equal square cells without borders or text. Top: boy left, girl right; bottom: same characters joyfully smiling. Family-friendly inviting hand-painted anime storybook game art; large lively eyes and friendly confidence; practical fully clothed fantasy outfits. Boy: tousled layered chestnut hair, emerald eyes, teal jacket, cream scarf, gold star clasp. Girl: warm auburn high side ponytail, turquoise ribbon, jade eyes, periwinkle jacket, cream scarf and matching star clasp. Soft mint/cream woodland bokeh; centered faces with full hairstyle and shoulders; maintain identity between rows. Original characters, no branded characters, watermarks or text.
