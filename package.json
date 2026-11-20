@@ -4,8 +4,15 @@
   "private": true,
   "scripts": {
     "test": "node --test *.test.cjs",
-    "check": "node --check equipment.js && node --check profile.js && node --check equipment-ui.js && node --check ui-art.js && node --check character-profile.js && node --check camera-rig.js && node --check story-scenes.js && node --check creature-motion.js && node --check world-engine.js && node --check world-style.js && node --check webgl-world.js && node --check world-input.js && node --check realtime-world.js && node --check game-audio.js && node --check story-mode.js && node --check story.js && node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
+    "check": "node --check homestead.js && node --check account-auth.js && node --check account-ui.js && node --check auth-config.js && node --check equipment.js && node --check profile.js && node --check equipment-ui.js && node --check ui-art.js && node --check character-profile.js && node --check camera-rig.js && node --check story-scenes.js && node --check creature-motion.js && node --check world-engine.js && node --check world-style.js && node --check webgl-world.js && node --check world-input.js && node --check realtime-world.js && node --check game-audio.js && node --check story-mode.js && node --check story.js && node --check skills.js && node --check engine.js && node --check art.js && node --check battle-fx.js && node --check ranch.js && node --check ranch-ui.js && node --check app.js && node --check sw.js && node --check world2d.js && node --check world-clock.js",
     "build": "node build.cjs",
-    "dev": "node preview.cjs"
+    "dev": "node preview.cjs",
+    "build:auth": "esbuild auth-provider.entry.js --bundle --format=iife --platform=browser --target=es2020 --minify --legal-comments=eof --outfile=auth-provider.js"
+  },
+  "dependencies": {
+    "@supabase/auth-js": "2.119.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
   }
 }

@@ -100,3 +100,16 @@ Created an original painted 2×2 atlas for male/female calm/happy portraits; cha
 Added Character → Profile with four preset avatars, preview-before-save photo selection, explicit Save/Cancel, removal and changeable male/female appearance. JPEG/PNG/WebP inputs have 5 MB byte and 4096px dimension limits and signature checks. A center-cropped 256px JPEG copy is stored separately in browser storage, never in the adventure JSON or on a server. Uploaded photos are UI avatars, not world textures. This is not an account/cloud/public-profile system. Storage/decode errors are surfaced; stale asynchronous previews are ignored.
 
 Validation: 139 tests, syntax checks and 44-asset build passed. Browser tests cover uploading a synthetic PNG, previewing a 41,831-character JPEG data URL, saving and reloading, removing, changing world character without losing +3 attack/+5% gear, preset selection and the 390×740 phone layout. No actual user photo was used in QA. Physical iOS/Android upload formats and GPU performance remain unverified.
+
+## 2026-11-20 — account sign-in foundation (backend blocked)
+
+Inspection confirmed there was no existing login implementation, provider config or backend in the GitHub Pages project. Added an Account dialog/world entry and a provider adapter backed by the pinned official Supabase Auth SDK. Prepared email/password signup/sign-in, email-confirmation status, password recovery/update, verified-session display and local-scope sign-out. Existing game/profile storage is independent. Unconfigured production code does not collect a password or simulate authentication.
+
+150 tests, syntax checks, 49-asset build and production-dependency audit (0 reported vulnerabilities) passed. Real SDK empty-session initialization is tested without network; authenticated outcomes use injected provider fixtures. Browser-tested guest/continue behavior and form presentation only. Actual account creation, email delivery, session refresh/recovery and login/logout against a real backend remain BLOCKED until an owner-controlled Supabase project URL/public publishable key and email redirect configuration are supplied. No backend, paid service or real user account created. See AUTH_SETUP.md.
+
+## November 20, 2026 — cottage and ranch design (v26)
+- Added a walkable 2.5D cottage connected to the ranch, collision-safe alcoves, exit and decorating workbench. Open cutaway room uses the existing WebGL/software renderers.
+- Three room palettes; four owned legacy furnishings can be placed/moved/stored in four fixed alcoves. Four earned-gold farm decorations can be bought and displayed/stored. No unrestricted free placement is claimed.
+- Optional validated `homestead` save extension preserves existing saves, furniture ownership, pets and quests. Cosmetic purchases have no stat or account-privilege effects.
+- Renamed Account entry points to Login / Register in header and expanded HUD. Real authentication remains BLOCKED by absent owner backend configuration; no cloud saves or OAuth activation claimed.
+- Automated suite: 157 tests pass, including migration, transactions, invalid imports, portal/path collision, save round-trip and finite geometry; production build: 50 assets. Browser QA and publication status recorded in PR.
